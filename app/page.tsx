@@ -35,11 +35,11 @@ export default function Home() {
       setDiet('');
 
       setTimeout(() => {
-        setMessage('Personalizing diet  ...');
+        setMessage('Personalizing diet...');
       }, 7000);
 
       setTimeout(() => {
-        setMessage('Almost done ...');
+        setMessage('Almost done...');
       }, 15000);
 
       const response = await fetch('/api/get-diet-plan', {
