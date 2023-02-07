@@ -3,8 +3,8 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 type Data = {
   message: string;
-  pointsOfInterestPrompt: any;
-  diet: any;
+  pointsOfInterestPrompt: unknown;
+  diet: unknown;
 };
 
 const GPT_KEY = process.env.GPT_API_KEY;
