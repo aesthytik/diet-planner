@@ -52,5 +52,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     });
   } catch (err) {
     console.log('error: ', err);
+    res.status(500).json({ message: 'failure', pointsOfInterestPrompt: '', diet: 'Failed' });
   }
 }
