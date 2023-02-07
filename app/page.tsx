@@ -36,11 +36,11 @@ export default function Home() {
 
       setTimeout(() => {
         setMessage('Personalizing diet  ...');
-      }, 7000);
+      }, 2000);
 
       setTimeout(() => {
         setMessage('Almost done ...');
-      }, 15000);
+      }, 6000);
 
       const response = await fetch('/api/get-diet-plan', {
         method: 'POST',
