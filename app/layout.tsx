@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+import './globals.css';
 import { AnalyticsWrapper } from './components/analytics';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
