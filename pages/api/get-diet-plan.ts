@@ -42,7 +42,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     temperature: 0,
     max_tokens: 550,
   };
-  console.log('payload', payload);
+  console.log('payload', payload, GPT_KEY);
 
   try {
     const response = await fetch('https://api.openai.com/v1/completions', {
