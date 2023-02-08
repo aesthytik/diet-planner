@@ -21,7 +21,7 @@ const headers = {
 };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  let age = 18;
+  let age = '18';
   let gender = 'Male';
   let height = '172';
   let weight = '60';
@@ -36,19 +36,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   }
 
   const basePrompt = `what is an ideal diet chart for ${age} year old ${gender} with height ${height} cm and weight ${weight} kgs for ${goal} based on meals in a day in form of markdown to be rendered in react?`;
+  const payload = {
+    model: 'text-davinci-003',
+    prompt: basePrompt,
+    temperature: 0,
+    max_tokens: 550,
+  };
+
   try {
     const response = await fetch('https://api.openai.com/v1/completions', {
       method: 'POST',
       headers,
-      body: JSON.stringify({
-        model: 'text-davinci-003',
-        prompt: basePrompt,
-        temperature: 0,
-        max_tokens: 550,
-      }),
+      body: JSON.stringify(payload),
     });
     const diet = await response.json();
-
+    console.log('diet', diet);
     const pointsOfInterestPrompt = `Extract the points of interest out of this text, with no additional words, separated by commas: ${diet.choices[0].text}`;
 
     res.status(200).json({
