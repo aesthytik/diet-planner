@@ -16,7 +16,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <title>Diet Planner GPT</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="Diet Planner GPT" />
-        <meta name="keywords" content="Diet planner, AI Diet Planner" />
+        <meta
+          name="keywords"
+          content="Diet planner, AI Diet Planner, diet AI, chatGPT diet, meal planner"
+        />
         <meta property="og:image" content="/banner.png" />
       </head>
       <body>
