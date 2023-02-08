@@ -42,17 +42,27 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     temperature: 0,
     max_tokens: 550,
   };
+  console.log('payload', payload, GPT_KEY);
 
-  const response = await fetch('https://api.openai.com/v1/completions', {
-    method: 'POST',
-    headers,
-    body: JSON.stringify(payload),
-  });
-  const diet = await response.json();
+  try {
+    const response = await fetch('https://api.openai.com/v1/completions', {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(payload),
+    });
+    const diet = await response.json();
 
-  res.status(200).json({
-    message: 'success',
-    pointsOfInterestPrompt: '',
-    diet: diet?.choices?.choices[0]?.text,
-  });
+    res.status(200).json({
+      message: 'success',
+      pointsOfInterestPrompt: '',
+      diet,
+    });
+  } catch (err) {
+    console.log('error: ', err);
+    res.status(404).json({
+      message: 'failure',
+      pointsOfInterestPrompt: '',
+      diet: 'Failure',
+    });
+  }
 }

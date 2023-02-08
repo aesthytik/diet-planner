@@ -54,7 +54,7 @@ export default function Home() {
       });
       const json = await response.json();
       const { diet: dietValue } = json;
-      setDiet(dietValue);
+      setDiet(dietValue?.choices[0].text);
       setLoading(false);
     } catch (e) {
       setDiet('Something went wrong!');
