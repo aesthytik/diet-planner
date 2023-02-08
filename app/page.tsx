@@ -39,7 +39,7 @@ export default function Home() {
       }, 7000);
 
       setTimeout(() => {
-        setMessage('Almost done...');
+        setMessage('Getting results...');
       }, 15000);
 
       const response = await fetch('/api/get-diet-plan', {
