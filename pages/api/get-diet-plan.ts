@@ -54,7 +54,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     res.status(200).json({
       message: 'success',
       pointsOfInterestPrompt,
-      diet: diet.choices[0].text,
+      diet: diet?.choices?.choices[0]?.text,
     });
   } catch (err) {
     console.log('error: ', err);
