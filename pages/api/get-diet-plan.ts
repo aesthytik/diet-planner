@@ -29,7 +29,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   if (req.body) {
     const body = JSON.parse(req.body);
     age = body.age;
-    gender = body.city;
+    gender = body.gender;
     height = body.height;
     weight = body.weight;
     goal = body.goal;
