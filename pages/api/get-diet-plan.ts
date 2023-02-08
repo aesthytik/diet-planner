@@ -52,11 +52,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     });
     const diet = await response.json();
     console.log('diet', diet);
-    const pointsOfInterestPrompt = `Extract the points of interest out of this text, with no additional words, separated by commas: ${diet.choices[0].text}`;
 
     res.status(200).json({
       message: 'success',
-      pointsOfInterestPrompt,
+      pointsOfInterestPrompt: '',
       diet: diet?.choices?.choices[0]?.text,
     });
   } catch (err) {
