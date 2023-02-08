@@ -10,11 +10,6 @@ type Data = {
 
 const GPT_KEY = process.env.GPT_API_KEY;
 
-// const headers = {
-//   'Content-Type': 'application/json',
-//   Authorization: `Bearer ${GPT_KEY}`,
-// };
-
 const headers = {
   'Content-Type': 'application/json',
   Authorization: `Bearer ${GPT_KEY}`,
