@@ -57,7 +57,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       diet: diet.choices[0].text,
     });
   } catch (err) {
-    // console.log('error: ', err);
+    console.log('error: ', err);
     res.status(404).json({
       message: 'failure',
       pointsOfInterestPrompt: '',
