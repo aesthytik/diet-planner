@@ -30,7 +30,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     goal = body.goal;
   }
 
-  const basePrompt = `what is an ideal diet chart for ${age} year old ${gender} with height ${height} cm and weight ${weight} kgs for ${goal} based on meals in a day per grams in form of markdown to be rendered in react?`;
+  const basePrompt = `what is an ideal diet chart for ${age} year old ${gender} with height ${height} feet and weight ${weight} kgs for ${goal} based on meals in a day per grams in form of markdown to be rendered in react?`;
   const payload = {
     model: 'text-davinci-003',
     prompt: basePrompt,

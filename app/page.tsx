@@ -9,6 +9,8 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { BsArrowRightCircleFill } from 'react-icons/bs';
 import { AiFillHeart } from 'react-icons/ai';
+import Rive from '@rive-app/react-canvas';
+import { TypeAnimation } from 'react-type-animation';
 
 export default function Home() {
   const [request, setRequest] = useState<{
@@ -77,7 +79,7 @@ export default function Home() {
             <div className="pt-0 col-span-3 md:col-span-1">
               <input
                 type="text"
-                className="px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm border border-slate-300 outline-none focus:outline-none focus:ring w-full"
+                className="px-3 py-3 placeholder-slate-500 text-slate-800  relative bg-white rounded text-sm border-2 border-gray-700 outline-none focus:outline-none focus:ring w-full"
                 placeholder="Age"
                 onChange={(e) =>
                   setRequest((req) => ({
@@ -90,8 +92,8 @@ export default function Home() {
             <div className="pt-0 col-span-3 md:col-span-1">
               <input
                 type="text"
-                className="px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm border border-slate-300 outline-none focus:outline-none focus:ring w-full"
-                placeholder="Height in cms"
+                className="px-3 py-3 placeholder-slate-500 text-slate-800 relative bg-white rounded text-sm border-2 border-gray-700 outline-none focus:outline-none focus:ring w-full"
+                placeholder="Height in feet. Eg: 5.8"
                 onChange={(e) =>
                   setRequest((req) => ({
                     ...req,
@@ -103,7 +105,7 @@ export default function Home() {
             <div className="pt-0 col-span-3 md:col-span-1">
               <input
                 type="text"
-                className="px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm border border-slate-300 outline-none focus:outline-none focus:ring w-full"
+                className="px-3 py-3 placeholder-slate-500 text-slate-800 relative bg-white rounded text-sm border-2 border-gray-700 outline-none focus:outline-none focus:ring w-full"
                 placeholder="Weight in Kilograms"
                 onChange={(e) =>
                   setRequest((req) => ({
@@ -116,7 +118,7 @@ export default function Home() {
             <div className="mb-3 pt-0 col-span-3">
               <input
                 placeholder="Write your goal. For example, Bulking"
-                className="px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm border border-slate-300 outline-none focus:outline-none focus:ring w-full"
+                className="px-3 py-3 placeholder-slate-500 text-slate-800 relative bg-white rounded text-sm border-2 border-gray-700 outline-none focus:outline-none focus:ring w-full"
                 onChange={(e) =>
                   setRequest((req) => ({
                     ...req,
@@ -138,8 +140,9 @@ export default function Home() {
           </div>
         </div>
         <div className="sm:text-left md:w-1/2 h-full">
-          <div className="bg-gray-200 w-full h-full rounded-md p-6 border-[2px] border-gray-300 overflow-scroll">
-            {loading && <p className="text-gray-900">{message}</p>}
+          <div className="bg-gray-100 w-full h-full rounded-md p-6 border-[2px] border-gray-700 overflow-scroll">
+            {loading && <Rive src="/cute_cake.riv" className="w-full h-44 md:h-full" />}
+            {loading && <p className="text-gray-900 text-center">{message}</p>}
             {diet ? (
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
@@ -167,7 +170,18 @@ export default function Home() {
                 {diet}
               </ReactMarkdown>
             ) : (
-              !loading && <p className="text-gray-400">Your results</p>
+              !loading && (
+                <div className="text-gray-400">
+                  <TypeAnimation
+                    sequence={[
+                      'Your diet plan will be shown here. Input anything you need according to preference.',
+                    ]}
+                    wrapper="div"
+                    cursor
+                    style={{ fontSize: '1em' }}
+                  />
+                </div>
+              )
             )}
           </div>
         </div>
